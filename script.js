@@ -1,6 +1,9 @@
 //Testing connection
 // alert("Connected successfully!");
 
+
+//Algorith
+
 //Get reference to HTML elements
 const textarea = document.getElementById('text_area'),
         paragraph = document.querySelector('#paragraph'),
@@ -24,12 +27,21 @@ fetch("data.json")
     if(!response.ok){
         throw new Error(`HTTP Response! Status: ${response.status}`)
     }
-    return response.json()
+
+    return response.json();
 } 
 )
 .then((data) => {
-    console.log(data)
+
+    let arrayElement = data;
+    let randomJsonData = Math.floor(Math.random() * arrayElement.length);
+    let displayElement = data[randomJsonData];
+
+    paragraph.textContent = displayElement;
+    console.log(displayElement)
+
 })
+
 .catch((error) =>{
     console.log("Trouble fetching data from Json file!", error);
 })

@@ -86,7 +86,8 @@ h2{
 .errors{
     color: yellow;
 }
-#typed_text{
+
+#text_area{
     border: 10px #011e1e;
     border-style: ridge;
     outline: none;
@@ -96,4 +97,12 @@ h2{
     background-color: rgb(0, 255, 242);
     color: #011e1e;
     font-size: 1.5rem;
+}
+
+.correct_text{
+    color:rgb(2, 255, 247);
+}
+
+.error_text{
+    color: red;
 }
