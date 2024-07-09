@@ -54,7 +54,7 @@ function initTyping() {
 
     if(charIndex < characters.length - 1 && timeLeft > 0) {
         if(!isTyping) {
-            timer = setInterval(initTimer, 100);
+            timer = setInterval(initTimer, 1000);
             isTyping = true;
         }
 
