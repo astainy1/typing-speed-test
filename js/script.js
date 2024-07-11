@@ -6,7 +6,7 @@ mistakeTag = document.querySelector(".mistake span"),
 wpmTag = document.querySelector(".wpm span"),
 mistakeCount = document.getElementById('count'),
 progressMessage = document.querySelector('.popup_container h2'),
-accuracy = document.querySelector('accuracy_result'),
+accuracy = document.getElementById('accuracy'),
 overLay = document.getElementById('overLay_container'),
 cpmTag = document.querySelector(".cpm span");
 
@@ -16,6 +16,24 @@ let mainModal = document.getElementById('popupContainer');
 //try again button
 let tryAgainBtn = document.getElementById("closePopup");
 
+//Simple calculation
+/*
+Calculation Accuracy
+
+To calculate this mathematically, 
+take the number of correct characters typed 
+divided by the total number, multiplied by 100%.
+
+let totalCorrectedChar = cpm;
+let totalChar = 100;
+let accuracy = (totalCorrectedChar / totalChar) * 100
+*/
+
+let totalCorrectedChar = 70;
+let totalChar = 83;
+let TypiestAccuracy = totalCorrectedChar / totalChar * 100;
+let totalAccuracy = Math.floor(TypiestAccuracy)
+console.log(totalAccuracy + '%');
 
 let timer,
 maxTime = 60,
@@ -24,7 +42,8 @@ charIndex = mistakes = isTyping = 0;
 
 //function to get paragraphs from json
 async function paragraphs(){
-   const response = await fetch('data.json')
+    
+   const response = await fetch('./js/data.json')
    const JSONdata = await response.json();
    return JSONdata[Math.floor(Math.random() * JSONdata.length)];
 
@@ -38,7 +57,7 @@ async function loadParagraph() {
     typingText.innerHTML = "";
     
     currentParagraph.split("").forEach(char => {
-        let span = `<span>${char}</span>`
+        let span = `<span>${char}</span>`;
         typingText.innerHTML += span;
     });
 
@@ -80,6 +99,26 @@ function initTyping() {
 
         characters.forEach(span => span.classList.remove("active"));
         characters[charIndex].classList.add("active");
+        
+        let totalChar = characters.length;
+        let totalTypedChar = charIndex - mistakes;
+        console.log(totalTypedChar)
+        let totalAccuracy = Math.floor((totalTypedChar / totalChar) * 100);
+        // console.log(totalAccuracy);
+        accuracy.innerText = `${totalAccuracy}%`;
+
+        //alert user progress
+        if(totalAccuracy <= 20){
+            progressMessage.innerText = `Keep up! You gonna make it`;
+        }else if (totalAccuracy <= 40) {
+            progressMessage.innerText = `Your progress is exceptional!`;
+        } else if(totalAccuracy <= 60){
+            progressMessage.innerText = `Your progress is Overwhelming!`;
+        }else if(totalAccuracy <= 80){
+            progressMessage.innerText = `Awesome! Your progress is super grate!`;
+        }else {
+            progressMessage.innerText = `Congratulation! Your speed is outstanding.`;
+        }
 
         let wpm = Math.round(((charIndex - mistakes)  / 5) / (maxTime - timeLeft) * 60);
         wpm = wpm < 0 || !wpm || wpm === Infinity ? 0 : wpm;
