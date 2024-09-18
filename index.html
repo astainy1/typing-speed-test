@@ -1,57 +1,61 @@
 <!DOCTYPE html>
 <!-- Coding By CodingNepal - youtube.com/codingnepal -->
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">  
-    <title>Typing Speed Test</title>
-    <link rel="stylesheet" href="css/style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  </head>
-  <body>
-    <div class="wrapper">
+
+<head>
+  <meta charset="utf-8">
+  <title>Typing Speed Test</title>
+  <link rel="stylesheet" href="css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <div class="wrapper">
+    <ul class="result-details">
+      <li class="time">
+        <p>Time Left:</p>
+        <span><b>60</b>s</span>
+      </li>
+    </ul>
+    <input type="text" class="input-field">
+    <div class="content-box">
+      <div class="typing-text">
+        <p></p>
+      </div>
+      <div class="content">
         <ul class="result-details">
-            <li class="time">
-              <p>Time Left:</p>
-              <span><b>60</b>s</span>
-            </li>
+          <li class="mistake">
+            <p>Errors:</p>
+            <span id="count">0</span>
+          </li>
+          <li class="wpm">
+            <p>WPM:</p>
+            <span>0</span>
+          </li>
+          <li class="cpm">
+            <p>CPM:</p>
+            <span>0</span>
+          </li>
         </ul>
-      <input type="text" class="input-field">
-      <div class="content-box">
-        <div class="typing-text">
-          <p></p>
-        </div>
-        <div class="content">
-          <ul class="result-details">
-            <li class="mistake">
-              <p>Errors:</p>
-              <span id="count">0</span>
-            </li>
-            <li class="wpm">
-              <p>WPM:</p>
-              <span>0</span>
-            </li>
-            <li class="cpm">
-              <p>CPM:</p>
-              <span>0</span>
-            </li>
-          </ul>
-          <button>Reset</button>
-        </div>
+        <button id="resetBtn">Reset</button>
       </div>
     </div>
-    <section class="popup_container" id="popupContainer">
-        <h2 id="typiest_progress">Your Progress is exceptional!</h2>
-        <section class="accuracy">
-            <p>Accuracy:</p>
-            <span><b id="accuracy">0</b></span>
-        </section>
-        <button type="submit" id="closePopup">Try Again?</button>
+  </div>
+  <section class="popup_container" id="popupContainer">
+    <h2>Your Progress is exceptional!</h2>
+    <section class="accuracy">
+      <p>Accuracy:</p>
+      <span><b id="accuracy">0</b></span>
     </section>
-    <section id="overLay_container">
+    <button type="submit" id="closePopup">Try Again?</button>
+  </section>
+  <section id="overLay_container">
 
-    </section>
-  
-    <script src="js/script.js"></script>
-  
-  </body>
+  </section>
+
+  <!-- <script src="js/paragraphs.js"></script> -->
+  <script src="js/script.js"></script>
+
+</body>
+
 </html>
