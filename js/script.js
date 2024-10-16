@@ -17,8 +17,8 @@ let mainModal = document.getElementById("popupContainer");
 let tryAgainBtn = document.getElementById("closePopup");
 
 // Load key press sound
-const keyPressSound = new Audio('../js/keypress.mp3');
-const wrongKeyPressSound = new Audio('../js/wrongkeypress.mp3');
+const keyPressSound = new Audio('./js/keypress.mp3');
+const wrongKeyPressSound = new Audio('./js/wrongkeypress.mp3');
 
 let timer,
   maxTime = 60,
@@ -29,7 +29,7 @@ let timer,
 async function paragraphs() {
 
   try {
-    const response = await fetch("../js/data.json");
+    const response = await fetch("./js/data.json");
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
