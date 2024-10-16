@@ -180,5 +180,3 @@ loadParagraph();
 //add evenListener for initailizing typing and resetting game
 inpField.addEventListener("input", initTyping);
 resetBtn.addEventListener("click", resetGame);
-
-
